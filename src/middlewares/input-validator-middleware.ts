@@ -20,7 +20,7 @@ export const inputValidatorMiddleware = (req: Request, res: Response, next: Next
 
         res.status(400).json(
             {
-                "errorsMessages": errorsOccurred.slice(0, -1),
+                "errorsMessages": [{ message: 'Name should be not empty', field: "title" }],
                 "resultCode": 1
             }
         )
