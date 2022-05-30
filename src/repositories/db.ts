@@ -10,7 +10,7 @@ export const videosCollection = client.db().collection("videos")
 export async function runDb() {
     try {
         await client.connect()
-        await client.db("videosApi").command({ping: 1})
+        await client.db("videos-db").command({ping: 1})
         console.log("Connection complete")
     } catch (e) {
         await client.close()
