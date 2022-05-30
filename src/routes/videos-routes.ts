@@ -14,7 +14,7 @@ videosRouter
     //Create new video
     .post('/',
         body('title').isString().withMessage('Name should be a string')
-            .trim().not().isEmpty().withMessage('Name should be not empty'),
+            .trim().not().isEmpty().withMessage('Name should be not empty').isLength({ min: 1, max: 40 }).withMessage('Name should be between 1 and 40 symbols'),
         inputValidatorMiddleware,
         authMiddleware,
         async (req: Request, res: Response) => {
@@ -34,7 +34,7 @@ videosRouter
     //Update existing video by id with InputModel
     .put('/:videoId',
         body('title').isString().withMessage('Name should be a string')
-            .trim().not().isEmpty().withMessage('Name should be not empty'),
+            .trim().not().isEmpty().withMessage('Name should be not empty').isLength({ min: 1, max: 40 }).withMessage('Name should be between 1 and 40 symbols'),
         inputValidatorMiddleware,
         authMiddleware,
         async (req: Request, res: Response) => {
