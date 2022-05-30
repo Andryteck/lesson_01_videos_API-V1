@@ -9,7 +9,7 @@ import {videosCollection} from "./db";
 export const videosRepository = {
     async getVideos() {
         const videosFromDB = await videosCollection
-            .find()
+            .find({projection: {_id: 0}})
             .toArray()
         return videosFromDB
     },
